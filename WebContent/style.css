@@ -1,4 +1,10 @@
 @charset "UTF-8";
+
+@font-face{
+	font-family: 'fb_logo';
+	src: url("../fonts/FACEBOLF.OTF");
+}
+
 html{
 	margin:0;
 	padding:0;	
@@ -24,6 +30,7 @@ body{
     font-size:500%;
     height: 60%;
     text-align: center;
+    font-family: 'fb_logo';
     /* justify-content: center; */
    /*  position: fixed;
     top:20%; */
