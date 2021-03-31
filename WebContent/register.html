@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Trojan Chat</title>
-    <meta charset="utf-8">
+	<title>Trojan Chat: Registration Page</title>
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="master" class="container-fluid">
+	<div id="master" class="container-fluid">
         <div id="logo_row" class="row d-flex align-items-center">
           <div class="col-2"></div>
           <div class="col-8"> <b>Trojan Chat</b></div>
@@ -26,22 +26,28 @@
 		  <input class="col-3" type="password" class="form-control" id="pwd">
 		</div>
 		<div class="form-group row d-flex">
-			<div class="col-5"></div>
- 					<label class="form-check-label mr-3 mt-2" for="defaultCheck1" style="color: #E0CA3C">
-   					Remember me <input type="checkbox" value="">
- 					</label>
-				<button type="submit" class="btn login_btns mr-2">
-					Submit
-				</button>
-				<button type="button" class="btn login_btns ml-2">
+		  <label class="col-5 label" for="pwd">Confirm password:</label>
+		  <input class="col-3" type="password" class="form-control" id="pwd_confirm">
+		</div>
+		 <div class="form-group row d-flex">
+ 			<label class="col-5 label" for="usr">First name:</label>
+ 			<input class="col-3" type="text" class="form-control" id="first_name">
+		</div>
+		 <div class="form-group row d-flex">
+ 			<label class="col-5 label" for="usr">Last name:</label>
+ 			<input class="col-3" type="text" class="form-control" id="last_name">
+		</div>
+		<div class="form-group row d-flex">
+ 			<label class="col-5 label" for="usr">USC email:</label>
+ 			<input class="col-3" type="email" class="form-control" id="register_email">
+		</div>
+		<div class="form-group row d-flex">
+			<div class="col-6"></div>
+				<button type="submit" class="btn login_btns mr-2 mt-3">
 					Register
 				</button>
 			<div class="col-5"></div>
 		</div>
-		 <div class="form-group row d-flex">
-		 	<div class="col-5"></div>
-		 	<a href="#" class="pl-5 ml-4" style="color: #E0CA3C; text-decoration: none">Forgot password</a> 
-		 </div>
 	</div>
 </body>
 </html>
