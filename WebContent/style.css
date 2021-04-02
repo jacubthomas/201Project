@@ -62,3 +62,31 @@ body{
 .navbar .navbar-brand{
 	color: #E0CA3C !important;
 }
+
+#profile_info{
+	background-color:#FFFBFF;
+	border: 2px solid 3A4454;
+}
+#profile_about{
+	overflow-wrap: break-word;
+}
+#tommy{
+	max-width: 100%;
+}
+#profile_feed{
+	height:80%;
+	min-width:60%;
+	justify-content:center;
+}
+#profile_feed .post{
+	background-color:#FFFBFF;
+	border: 2px solid #9DA2AB;
+	margin-top:3%;
+	margin-bottom:3%;
+    min-height:100px;
+}
+
+#profile_feed .private  {
+    background-color:#3A4454;
+    color:#FFFBFF;
+}
