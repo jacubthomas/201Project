@@ -46,3 +46,19 @@ body{
 	color: #E0CA3C;
 	text-align: center;
 }
+.navbar{
+	height:8%;
+	box-shadow: 0px 4px 15px black;
+}
+.navbar ul{
+	align-items:center;
+}
+.navbar li a{	
+	color: #9DA2AB !important;
+}
+.navbar li a:hover{	
+	color: #E0CA3C !important;
+}
+.navbar .navbar-brand{
+	color: #E0CA3C !important;
+}
