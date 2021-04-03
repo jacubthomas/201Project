@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Trojan Chat: Profile</title>
+	<title>Trojan Chat: Explore</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,13 +14,13 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top p-0"  style="border: 2px solid black;">
 		<ul class="navbar-nav">
 			<li class="nav-item pr-4">
-				<a class="nav-link pl-4" onclick="window.location.href='dashboard.html';" href="#">Home</a>
+				<a class="nav-link pl-4" href="#" onclick="window.location.href='dashboard.html';">Home</a>
+			</li>
+			<li class="nav-item pr-4">
+				<a class="nav-link" href="#" onclick="window.location.href='profile.html';">Profile</a>
 			</li>
 			<li class="nav-item pr-4">
 				<a class="nav-link" href="#">Settings</a>
-			</li>
-			<li class="nav-item pr-4">
-				<a class="nav-link" href="#" onclick="window.location.href='explore.html';">Explore</a>
 			</li>
 		</ul>
 		<a class="navbar-brand ml-auto mr-4 my-2" href="#"><span id="logo">TC</span></a>
@@ -28,25 +28,12 @@
 	<div id="master" class="container-fluid">
 		<div class="container-fluid mt-5 h-80 p-0 pt-3 mx-1">
 			<div class="row w-100 h-100 mx-3 p-0" >
-				<div id="profile_info" class="col-4 d-flex flex-column mx-1 my-3 p-0">
-					<div id="profile_pic" class="p-4">
-						<img id="tommy"src="tommy_boi.jpeg" alt="Tommy boi" class="">
-					</div>
-					<div id="profile_about" class="p-2 mx-auto my-4">
-						Hi, my name is Tommy Trojan. I am 82 years young and forever attend the University of Southern California in Los Angeles. Fight on fellow Trojans!
-					</div>
-					<div id="profile_attributes" class="p-2 my-2 mx-auto">
-						<button id="btn_friend" type="button" class="btn login_btns mx-auto">
-							Hi friend!
-						</button> 
-						<button id="btn_pc_chat" type="button" class="btn login_btns mx-auto">
-							Let's chat!
-						</button> 
-					</div>
-				</div>
-				<div id="profile_feed" class="col-5 d-flex flex-column mx-auto">
-					<div class="post p-2">
-						...............
+				<div id="profile_feed" class="col-11 d-flex flex-column mx-auto">
+					<div id="say_more"class="form-group post p-2">
+						<textarea class="form-control" placeholder="Search ~ trending threads ~"></textarea>
+						<button id="login" type="submit" class="btn login_btns mr-2 my-5 py-2" style="float:right;">
+							Search!
+						</button>
 					</div>
 					<div class="post p-2 private">
 						...............
@@ -67,6 +54,5 @@
 			</div>
 		</div>
 	</div>
-</body>
 </body>
 </html>
