@@ -39,17 +39,22 @@
 		</div>
 		<div class="form-group row d-flex">
  			<label class="col-5 label" for="security" id="question">Security question:</label>
- 			<select class="col-3 form-control" name="security">
+ 			<select id = "securityQuestions"class="col-3 form-control" name="security">
  				<option value="" selected disabled>Please select a security question.</option>
  			</select>
 		</div>
+		 <div class="form-group row d-flex">
+ 			<label class="col-5 label" for="usr">Security Answer:</label>
+ 			<input class="col-3" type="text" class="form-control" id="security_answer">
+		</div>
 		<div class="form-group row d-flex">
 			<div class="col-6"></div>
-				<button type="submit" class="btn login_btns mr-2 mt-3">
+				<button onClick = "register()" class="btn login_btns mr-2 mt-3">
 					Register
 				</button>
 			<div class="col-5"></div>
 		</div>
 	</div>
+	<script type="text/javascript" src="register.js"></script>
 </body>
 </html>
