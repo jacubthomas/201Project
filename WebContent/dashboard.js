@@ -1,1 +1,4 @@
-console.log(localStorage.getItem("username"))
+//logging to console all local storage items
+for (var i = 0; i < localStorage.length; i++){
+    console.log(localStorage.getItem(localStorage.key(i)))
+}
