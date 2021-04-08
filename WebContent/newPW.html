@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Trojan Chat: Forgot Password</title>
+<title>Trojan Chat: New Password</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -16,18 +16,24 @@
           <div class="col-2"></div>
           <div class="col-8"> <b>Trojan Chat</b></div>
           <div class="col-2"></div>
-        </div>
-        <div class="form-group row d-flex">
- 			<label class="col-5 label" for="usr">Username:</label>
- 			<input class="col-3" type="text" class="form-control" id="usr">
-		</div>
-		<div class="form-group row d-flex">
-			<div class="col-7"></div>
-				<button type="submit" onclick="window.location.href='recoverPW.html';" class="btn login_btns mr-2 mt-3">
-					Proceed
-				</button>
-			<div class="col-5"></div>
-		</div>
+    	</div>
+		<form>
+	       	<div class="form-group row d-flex mx-auto">
+	 			<label class="col-4 label" for="usr">New Password:</label>
+	 			<input class="col-5" type="password" class="form-control" id="usr" name="password">
+			</div>
+	        <div class="form-group row d-flex mx-auto">
+	 			<label class="col-4 label" for="usr">Confirm Password:</label>
+	 			<input class="col-5" type="password" class="form-control" name="confirmpassword">
+			</div>
+			<div class="form-group row d-flex">
+				<div class="col-8"></div>
+					<button type="button" onclick="window.location.href='index.html';" class="btn login_btns mr-2 mt-3">
+						Update
+					</button>
+				<div class="col-5"></div>
+			</div>
+		</form>
 	</div>
 </body>
 </html>
