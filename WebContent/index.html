@@ -17,30 +17,32 @@
           <div class="col-8"> <b>Trojan Chat</b></div>
           <div class="col-2"></div>
         </div>
-        <div class="form-group row d-flex">
- 			<label class="col-5 label" for="usr">Username:</label>
- 			<input class="col-3" type="text" class="form-control" id="usr">
+        <div class="form-group row d-flex mx-auto">
+ 			<label class="col-4 label" for="usr">Username:</label>
+ 			<input class="col-5" type="text" class="form-control" id="usr">
 		</div>
-		<div class="form-group row d-flex">
-		  <label class="col-5 label" for="pwd">Password:</label>
-		  <input class="col-3" type="password" class="form-control" id="pwd">
+		<div class="form-group row d-flex mx-auto">
+		  <label class="col-4 label" for="pwd">Password:</label>
+		  <input class="col-5" type="password" class="form-control" id="pwd">
 		</div>
-		<div class="form-group row d-flex">
-			<div class="col-5"></div>
- 					<label class="form-check-label mr-3 mt-2" for="defaultCheck1" style="color: #E0CA3C">
-   					Remember me <input type="checkbox" value="">
- 					</label>
-				<button id="login" onclick="window.location.href='dashboard.html';" type="submit" class="btn login_btns mr-2">
-					Submit
-				</button>
-				<button id="signup" onclick="window.location.href='register.html';" type="button" class="btn login_btns ml-2">
-					Register
-				</button>
-			<div class="col-5"></div>
+		<div class="form-group row d-flexmx-auto">
+			<div class="col-3"></div>
+			<label class="form-check-label mr-3 mt-2" for="defaultCheck1" style="color: #E0CA3C">
+				Remember me <input id="remembermeCB" type="checkbox" value="">
+			</label>
+			<button id="login" onclick="window.location.href='dashboard.html';" type="submit" class="btn login_btns mr-2">
+				Submit
+			</button>
+			<button id="signup" onclick="window.location.href='register.html';" type="button" class="btn login_btns ml-2">
+				Register
+			</button>
+			<button id="signup" onclick="window.location.href='dashboard.html';" type="button" class="btn login_btns ml-2">
+				Continue as Guest
+			</button>
 		</div>
-		 <div class="form-group row d-flex">
-		 	<div class="col-5"></div>
-		 	<a href="forgot_password.html" class="pl-5 ml-4" style="color: #E0CA3C; text-decoration: none">Forgot password</a> 
+		 <div class="form-group row d-flex mx-auto">
+		 	<div class="col-4"></div>
+		 	<a href="forgot_password.html" class="pl-5 ml-5" style="color: #E0CA3C; text-decoration: none">Forgot password</a> 
 		 </div>
 	</div>
 </body>
