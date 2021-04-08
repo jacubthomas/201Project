@@ -11,7 +11,7 @@ CREATE TABLE Users (
     lastname VARCHAR(15) NOT NULL,
     joined_on VARCHAR(15) NOT NULL,
     date_of_birth VARCHAR(15) NOT NULL,
-    public_status INT NOT NULL #1 = public, 2 = private
+    public_status INT NOT NULL #1 = public, 2 = friends only
 );
 
 CREATE TABLE Security (
@@ -33,7 +33,7 @@ CREATE TABLE Posts (
 	PostID INT PRIMARY KEY AUTO_INCREMENT,
     UserID INT NOT NULL,
     FOREIGN KEY fk1(UserID) references Users(UserID),
-    security_status INT NOT NULL, #1 = public, 2 = private
+    security_status INT NOT NULL, #1 = public, 2 = friends only (private), 3 = private message
     time_stamp VARCHAR(30) NOT NULL,
     likes INT NOT NULL,
     shares INT NOT NULL
@@ -56,5 +56,12 @@ CREATE TABLE Photos (
     UserID INT NOT NULL,
     FOREIGN KEY fk2(UserID) references Users(UserID),
     time_stamp VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Trend (
+	TrendID INT PRIMARY KEY AUTO_INCREMENT,
+    TrendName VARCHAR(15) NOT NULL,
+    PostID INT NOT NULL,
+    FOREIGN KEY fk1(PostID) references Posts(PostID)
 );
 
