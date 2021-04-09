@@ -118,6 +118,6 @@ body{
 #say_more textarea{
 	resize: vertical;
 }
-#master #remembermeCB input:checked {
-	background-color:#E0CA3C;
+#get_username{
+	color: #E0CA3C;
 }

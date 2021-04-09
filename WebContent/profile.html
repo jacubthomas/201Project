@@ -17,13 +17,16 @@
 				<a class="nav-link pl-4" onclick="window.location.href='dashboard.html';" href="#">Home</a>
 			</li>
 			<li class="nav-item pr-4">
-				<a class="nav-link" href="#">Settings</a>
+				<a class="nav-link" onclick="settings();">Settings</a>
 			</li>
 			<li class="nav-item pr-4">
 				<a class="nav-link" href="#" onclick="window.location.href='explore.html';">Explore</a>
 			</li>
 		</ul>
-		<button type="button" class="btn login_btns ml-auto mr-4 my-2" style="background-color:#9DA2AB">Logout</button>
+		<span id="get_username" class="nav-item ml-auto pl-4"></span>
+		<button onclick="window.location.href='index.html'; window.localStorage.clear();"
+			class="btn login_btns ml-4 mr-4 my-2"
+			style="background-color: #9DA2AB">Logout</button>
 		<a class="navbar-brand ml-2 my-2" href="#"><span id="logo">TC</span></a>
 	</nav>
 	<div id="master" class="container-fluid">
@@ -68,6 +71,6 @@
 			</div>
 		</div>
 	</div>
-</body>
+	<script type="text/javascript" src="navbar.js"></script>
 </body>
 </html>
