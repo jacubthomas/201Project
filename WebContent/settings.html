@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Trojan Chat: Account Settings</title>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	    <link rel="stylesheet" type="text/css" href="style.css">
+	    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-md bg-dark navbar-dark p-0"  style="border: 2px solid black;">
+			<a class="navbar-brand ml-2 mr-4" id="logo" href="dashboard.html">SC</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	   			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link ml-2"  href="dashboard.html">Home</a>
+					</li>
+					<li class="nav-item ml-2">
+						<a class="nav-link" href="profile.html">Profile</a>
+					</li>
+					<li class="nav-item ml-2">
+						<a class="nav-link" href="explore.html">Explore</a>
+					</li>
+				</ul>
+				<form class="form-inline mt-4 mb-2 my-md-0">
+					<button type="button" class="btn login_btns mr-md-4 mx-auto" style="background-color:#9DA2AB">Logout</button>
+				</form>
+			</div>
+		</nav>
+		
+		<div class="container mt-5 p-0">
+			<div class="row justify-content-center">
+				<div class="col-lg-5 col-10 justify-content-center p-0">
+					<div class="row my-3 p-0 justify-content-center">
+						<div id="profile_pic" class="p-4 col-10">
+							<img id="tommy"src="tommy_boi.jpeg" alt="Tommy boi" class="">
+						</div>
+					</div> 
+					<div class="row mt-2 mb-5 p-0">
+						<div class="col-12 mt-4 justify-content-center mx-auto">
+							<form class="justify-content-center">
+								<div class="form-group mb-4 text-center row">
+									<label class="label my-1 col-6" for="picture">Change profile picture:</label>
+									<input type="file" class="mx-auto my-1 col-6" id="picture" name="picture" accept="image/*">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 col-10 justify-content-center p-0 my-auto mx-auto">
+					<div class="row mt-3 mb-5 p-0 justify-content-center">
+						<div id="profile_about" class="p-2 ml-4 col-10">
+							<form class="col-12">
+								<textarea class="col-12 text-wrap" name="bio" rows="10">Hi, my name is Tommy Trojan. I am 82 years young and forever attend the University of Southern California in Los Angeles. Fight on fellow Trojans!</textarea>
+							</form>
+						</div>
+					</div>
+					<form>
+						<div class="form-group row my-4">
+							<label class="label col-4" for="username">Username:</label>
+							<input class="form-control col-7" type="text" id="username" value="Tommy_Trojan">
+						</div>
+						<div class="form-group row my-4">
+							<label class="label col-4" for="fname">First Name:</label>
+							<input class="form-control col-7" type="text" id="fname" value="Tommy">
+						</div>
+						<div class="form-group row my-4">
+							<label class="label col-4" for="lname">Last Name:</label>
+							<input class="form-control col-7" type="text" id="username" value="Trojan">
+						</div>
+						<div class="form-group row my-4">
+							<label class="label col-5 col-md-4 mr-1">Privacy Status:</label>
+							
+							<input class="radio-inline mt-2 mr-1" type="radio" id="public" name="privacy" value="public" checked>
+							<label class="label mr-2" for="privacy">Public</label>
+							
+							<input class="radio-inline mt-2 mr-1" type="radio" id="private" name="privacy" value="private">
+							<label class="label mr-2" for="privacy">Private</label>
+						</div>
+						<div class="form-group row my-4 justify-content-center">
+							<button type="button" class="btn login_btns mx-auto" onclick="location.href='reset_password.html'">Reset Password</button>
+							<button type="submit" class="btn login_btns mx-auto">Save Changes</button>						
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
