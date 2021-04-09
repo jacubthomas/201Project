@@ -32,6 +32,7 @@ CREATE TABLE Friends (
 CREATE TABLE Posts (
 	PostID INT PRIMARY KEY AUTO_INCREMENT,
     UserID INT NOT NULL,
+    postText VARCHAR(100) NOT NULL,
     FOREIGN KEY fk1(UserID) references Users(UserID),
     security_status INT NOT NULL, #1 = public, 2 = friends only (private), 3 = private message
     time_stamp VARCHAR(30) NOT NULL,

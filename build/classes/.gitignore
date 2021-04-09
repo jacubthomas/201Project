@@ -1,3 +1,3 @@
-/Server.class
-/login.class
-/register.class
+/post.class
+/getPosts.class
+/getPosts$post.class
