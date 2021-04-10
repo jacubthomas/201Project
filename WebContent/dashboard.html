@@ -5,10 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
      <nav class="navbar navbar-expand-md bg-dark navbar-dark p-0"  style="border: 2px solid black;">
@@ -40,12 +38,26 @@
 		<div class="container-fluid mt-5 h-80 p-0 pt-3 mx-1">
 			<div class="row w-100 h-100 mx-3 p-0" >
 				<div id="profile_feed" class="col-11 d-flex flex-column mx-auto">
-					<div id="say_more"class="form-group post p-2">
-						<textarea class="form-control" placeholder="Say More..."></textarea>
-						<button id="login" type="submit" class="btn login_btns mr-2 my-5 py-2" style="float:right;">
-							Post!
-						</button>
-					</div>
+					<form id="say_more"class="form-group post p-2">
+						<textarea id="say_more_txt" class="form-control" placeholder="Say More..."></textarea>
+ 						<div class="row mx-5">
+ 								<label id="picklabel" for="pickafriend" class="my-auto col-3 hidden" 
+ 								style="color:#E0CA3C;">Recipient</label>
+ 								<input id="pickafriend" type="text" name="recipient"
+ 								class="form-control form-control-sm my-5 nightmode2 col-8 hidden">
+ 							</div>
+ 						<div class= "row mx-3">
+  							<div class="custom-control custom-switch ml-auto my-5 py-2 mr-1">
+						      <input id="switch1" type="checkbox" class="custom-control-input" name="pubpriv"
+						      onclick="privacyToggle();">
+						      <label class="custom-control-label" for="switch1">Public/Private</label>
+						    </div>
+							<button id="login" type="submit" class="btn login_btns mx-2 my-5 py-2 col-2" 
+							onhover="color:black;">
+							 	Post! 
+							 </button>
+						 </div>
+					</form>
 					<div class="post p-2 private">
 						...............
 					</div>
@@ -67,5 +79,9 @@
 	</div>
 	<script type="text/javascript" src="dashboard.js"></script>
 	<script type="text/javascript" src="navbar.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -121,3 +121,18 @@ body{
 #get_username{
 	color: #E0CA3C;
 }
+.nightmode{
+	color: #E0CA3C !important;
+	background-color:#3A4454 !important;
+	border: 3px solid #9DA2AB !important;
+}
+.nightmode2{
+	color: #E0CA3C !important;
+	background-color:#9DA2AB !important;
+	border: 3px solid black !important;
+	font: bold;
+}
+
+.hidden{
+	display:none;
+}
