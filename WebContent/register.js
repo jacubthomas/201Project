@@ -29,6 +29,10 @@ function register(){
 	})
     .then(response => response.text())
     .then(response => {
+		if(response === "Username Exists"){
+			alert("Username Exists")
+			return
+		}
 		userData = JSON.parse(response) 
 		console.log(userData)
 		localStorage.setItem("UserID", userData.UserID)

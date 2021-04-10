@@ -44,7 +44,18 @@ public class register extends HttpServlet {
 		String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 		try {	
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
-			String query = "INSERT into Users (username, password_, firstname, lastname, joined_on, date_of_birth, public_status)" +
+			String query = "SELECT * from Users WHERE username = ?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, username);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				System.out.println("Username Exists.");
+				response.setContentType("text/plain");
+				out.print("Username Exists");
+				return;
+			}
+			
+			query = "INSERT into Users (username, password_, firstname, lastname, joined_on, date_of_birth, public_status)" +
 							" values (?, ?, ?, ?, ?, ?, ?)";
 			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, username);
