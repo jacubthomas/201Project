@@ -28,8 +28,11 @@
 					<a class="nav-link" href="explore.html">Explore</a>
 				</li>
 			</ul>
+			<span id="get_username" class="nav-item ml-auto pl-4"></span>
 			<form class="form-inline mt-4 mb-2 my-md-0">
-				<button type="button" class="btn login_btns mr-md-4 mx-auto" onclick="window.location.href='index.html'; window.localStorage.clear();" style="background-color:#9DA2AB">Logout</button>
+				<button type="button" class="btn login_btns ml-4 mr-4 my-2"
+				onclick="window.location.href='index.html'; window.localStorage.clear();"
+				style="background-color:#9DA2AB">Logout</button>
 			</form>
 		</div>
 	</nav>
@@ -38,8 +41,8 @@
 			<div class="row w-100 h-100 mx-3 p-0" >
 				<div id="profile_feed" class="col-11 d-flex flex-column mx-auto">
 					<div id="say_more"class="form-group post p-2">
-						<textarea id = "postInput"class="form-control" placeholder="Say More..."></textarea>
-						<button id="login" onClick = "post()" type="submit" class="btn login_btns mr-2 my-5 py-2" style="float:right;">
+						<textarea class="form-control" placeholder="Say More..."></textarea>
+						<button id="login" type="submit" class="btn login_btns mr-2 my-5 py-2" style="float:right;">
 							Post!
 						</button>
 					</div>
@@ -63,5 +66,6 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="dashboard.js"></script>
+	<script type="text/javascript" src="navbar.js"></script>
 </body>
 </html>
