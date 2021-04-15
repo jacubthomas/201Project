@@ -20,12 +20,20 @@ fetch('http://localhost:8080/Group_Project/getPosts?', {
 			var likes = postsArr[i].likes;
 			var shares = postsArr[i].shares;
 			var security = postsArr[i].security;
+			var PID = postsArr[i].PostID;
 			if(user != null){
 				var div =  document.createElement("div");
 				div.classList.add("post");
 				div.classList.add("p-2");
-				div.innerHTML = timestamp + " " + username + "\n"+ text
-								+ "\nLikes: " + likes + " , Shares: " + shares;
+				if(security == 1){
+				div.innerHTML = "<strong>" + timestamp + "<br>" + username + ":</strong><hr>" + text
+								+ "<hr><div style=\"text-align:right; margin:2%;\"><button id=\"like" + PID +"\" onclick=\"like(" + PID + ")\" class=\"btn login_btns p-2\">Likes: " + likes 
+								+ "</button><button class=\"btn login_btns p-2\">Shares: " + shares +"</button></div>";
+				} else {
+				div.innerHTML = "<strong>" + timestamp + "<br>" + username + ":</strong><hr>" + text
+								+ "<hr><div style=\"text-align:right; margin:2%;\"><button id=\"like" + PID +"\" onclick=\"like(" + PID + ")\" style=\"background-color:#9DA2AB;\" class=\"btn login_btns p-2\">Likes: " + likes 
+								+ "</button><button style=\"background-color:#9DA2AB;\" class=\"btn login_btns p-2\">Shares: " + shares +"</button></div>";
+				}
 				if(security != 1)
 					div.classList.add("private");
 				document.getElementById("dashposts").appendChild(div);
@@ -34,8 +42,9 @@ fetch('http://localhost:8080/Group_Project/getPosts?', {
 				var div =  document.createElement("div");
 				div.classList.add("post");
 				div.classList.add("p-2");
-				div.innerHTML = timestamp + " " + username + "\n"+ text
-								+ "\nLikes: " + likes + " , Shares: " + shares;
+				div.innerHTML =  "<strong>" + timestamp + "<br>" + username + ":</strong><hr>" + text
+								+ "<hr><div style=\"text-align:right; margin:2%;\"><button id=\"like" + PID +"\" onclick=\"like(" + PID + ")\" style=\"background-color:#9DA2AB;\" class=\"btn login_btns p-2\">Likes: " + likes
+								 + "</button><button style=\"background-color:#9DA2AB;\" class=\"btn login_btns p-2\">Shares: " + shares +"</button></div>";
 				document.getElementById("dashposts").appendChild(div);}
 			}
 		} 
@@ -72,4 +81,20 @@ function privacyToggle(){
 	probst.classList.toggle("nightmode2");
 	friend.classList.toggle("hidden");
 	label.classList.toggle("hidden");
+}
+
+function like(PID){
+	fetch('http://localhost:8080/Group_Project/like?' + new URLSearchParams({
+		PostID: PID 
+	}), {
+		method: "GET"
+	})
+	.then(response => response.text())
+	.then(response => {
+	resp = JSON.parse(response)
+	console.log(resp.Likes);
+	var id = "like" + PID;
+	document.getElementById(id).innerHTML="Likes: " + resp.Likes;
+	})
+	
 }

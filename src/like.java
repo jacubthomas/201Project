@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -8,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,17 +13,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/post")
-public class post extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
+@WebServlet("/like")
+public class like extends HttpServlet {
+	private static final long serialVersionUID = 4L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int UserID = Integer.parseInt(request.getParameter("UserID"));
-		String Input = request.getParameter("Input");
-		String Security = request.getParameter("Security");
-		String Recipient = request.getParameter("Recipient");
-		
+		int PostID = Integer.parseInt(request.getParameter("PostID"));
 		PrintWriter out = response.getWriter();
 		try {
 		    Class.forName("com.mysql.cj.jdbc.Driver");
@@ -39,28 +29,29 @@ public class post extends HttpServlet {
 		Statement st = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String date = new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(new Date());
 		try {	
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
-			String query = "INSERT into Posts (UserID, postText, security_status, time_stamp, likes, shares)" +
-					" values (?, ?, ?, ?, ?, ?)";
+			String query = "SELECT likes from Posts WHERE PostID = ?";
 			ps = conn.prepareStatement(query);
-			ps.setInt(1, UserID);
-			ps.setString(2, Input);
-			if(Security.equalsIgnoreCase("false"))
-				ps.setInt(3, 1);
-			else {
-				if(Recipient != "")
-					ps.setInt(3, 3);
-				else
-					ps.setInt(3,2);
+			ps.setInt(1, PostID);
+			rs = ps.executeQuery();		
+			int likes = 0;
+			if(rs.next()) {
+				likes = rs.getInt("likes");
+				likes++;
+			} else {
+				response.setContentType("text/plain");
+				out.print("Invalid Login");
 			}
-			ps.setString(4, date);
-			ps.setInt(5, 0);
-			ps.setInt(6, 0);
+			query = "UPDATE Posts SET likes = ? WHERE PostID = ?";
+			ps = conn.prepareStatement(query);
+			ps.setInt(1, likes);
+			ps.setInt(2, PostID);
 			ps.execute();
-			out.println("post success!");
-			System.out.println("post success!");		
+			response.setContentType("application/json");
+			out.println("{");
+			out.println("\"Likes\":" + likes );
+			out.println("}");
 		}catch(SQLException sqle) {
 			System.out.println ("SQLException: " + sqle.getMessage());
 		}finally {
@@ -82,5 +73,4 @@ public class post extends HttpServlet {
 			}
 		}
 	}
-
 }

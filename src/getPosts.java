@@ -23,14 +23,16 @@ public class getPosts extends HttpServlet {
 	class post{
 		public int UserID;
 		public String username;
+		public int PostID;
 		public String postText;
 		public String date;
 		public int likes;
 		public int shares;
 		public int security;
-		public post(int UserID, String username, String postText, String date, int likes, int shares, int security) {
+		public post(int UserID, String username, int PostID, String postText, String date, int likes, int shares, int security) {
 			this.UserID = UserID;
 			this.username = username;
+			this.PostID = PostID;
 			this.postText = postText;
 			this.date = date;
 			this.likes = likes;
@@ -60,7 +62,7 @@ public class getPosts extends HttpServlet {
 					+ "WHERE u.UserID=p.UserID ORDER BY p.PostID DESC");
 			
 			while(rs.next()) {
-				postsList.add(new post(rs.getInt("UserID"), rs.getString("username"), 
+				postsList.add(new post(rs.getInt("UserID"), rs.getString("username"), rs.getInt("PostID"),
 						rs.getString("postText"), rs.getString("time_stamp"),rs.getInt("likes"), rs.getInt("shares"), rs.getInt("security_status")));
 			}
 			String json = new Gson().toJson(postsList);
