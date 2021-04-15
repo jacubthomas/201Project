@@ -11,6 +11,8 @@ fetch('http://localhost:8080/Group_Project/getPosts?', {
 		postsArr = JSON.parse(response)
 		console.log(postsArr)
 		console.log(postsArr[0].UserID);
+		var user = localStorage.getItem("username");
+		
 		for(var i=0; i <postsArr.length; i++){
 			var username = postsArr[i].username;
 			var text = postsArr[i].postText;
@@ -18,14 +20,24 @@ fetch('http://localhost:8080/Group_Project/getPosts?', {
 			var likes = postsArr[i].likes;
 			var shares = postsArr[i].shares;
 			var security = postsArr[i].security;
-			var div =  document.createElement("div");
-			div.classList.add("post");
-			div.classList.add("p-2");
-			div.innerHTML = timestamp + " " + username + "\n"+ text
-							+ "\nLikes: " + likes + " , Shares: " + shares;
-			if(security != 1)
-				div.classList.add("private");
-			document.getElementById("dashposts").appendChild(div);
+			if(user != null){
+				var div =  document.createElement("div");
+				div.classList.add("post");
+				div.classList.add("p-2");
+				div.innerHTML = timestamp + " " + username + "\n"+ text
+								+ "\nLikes: " + likes + " , Shares: " + shares;
+				if(security != 1)
+					div.classList.add("private");
+				document.getElementById("dashposts").appendChild(div);
+			} else {
+				if(security == 1){
+				var div =  document.createElement("div");
+				div.classList.add("post");
+				div.classList.add("p-2");
+				div.innerHTML = timestamp + " " + username + "\n"+ text
+								+ "\nLikes: " + likes + " , Shares: " + shares;
+				document.getElementById("dashposts").appendChild(div);}
+			}
 		} 
 	})
 	
