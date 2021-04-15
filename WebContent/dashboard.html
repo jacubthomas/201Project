@@ -38,7 +38,7 @@
 		<div class="container-fluid mt-5 h-80 p-0 pt-3 mx-1">
 			<div class="row w-100 h-100 mx-3 p-0" >
 				<div id="profile_feed" class="col-11 d-flex flex-column mx-auto">
-					<form id="say_more"class="form-group post p-2">
+					<div id="say_more"class="form-group post p-2">
 						<textarea id="say_more_txt" class="form-control" placeholder="Say More..."></textarea>
  						<div class="row mx-2">
  								<label id="picklabel" for="pickafriend" class="my-auto col-3 hidden" 
@@ -52,25 +52,27 @@
 						      onclick="privacyToggle();">
 						      <label class="custom-control-label" for="switch1">Public/Private</label>
 						    </div>
-							<button id="login" type="submit" class="btn login_btns mx-2 my-5 py-2 col-2">
+							<button id="post_btn" type="button" onclick="event.preventDefault(); post();" class="btn login_btns mx-2 my-5 py-2 col-2">
 							 	Post! 
 							 </button>
 						 </div>
-					</form>
-					<div class="post p-2 private">
-						...............
 					</div>
-					<div class="post p-2">
-						...............
-					</div>
-					<div class="post p-2">
-						...............
-					</div>
-					<div class="post p-2 private">
-						...............
-					</div>
-					<div class="post p-2">
-						...............
+					<div id="dashposts">
+						<!-- <div class="post p-2 private">
+							...............
+						</div>
+						<div class="post p-2">
+							...............
+						</div>
+						<div class="post p-2">
+							...............
+						</div>
+						<div class="post p-2 private">
+							...............
+						</div>
+						<div class="post p-2">
+							...............
+						</div> -->
 					</div>
 				</div>
 			</div>

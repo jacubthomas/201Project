@@ -24,7 +24,9 @@ public class post extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int UserID = Integer.parseInt(request.getParameter("UserID"));
-		String postInput = request.getParameter("postInput");
+		String Input = request.getParameter("Input");
+		String Security = request.getParameter("Security");
+		String Recipient = request.getParameter("Recipient");
 		
 		PrintWriter out = response.getWriter();
 		try {
@@ -37,15 +39,22 @@ public class post extends HttpServlet {
 		Statement st = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+		String date = new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(new Date());
 		try {	
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
 			String query = "INSERT into Posts (UserID, postText, security_status, time_stamp, likes, shares)" +
 					" values (?, ?, ?, ?, ?, ?)";
 			ps = conn.prepareStatement(query);
 			ps.setInt(1, UserID);
-			ps.setString(2, postInput);
-			ps.setInt(3, 1);
+			ps.setString(2, Input);
+			if(Security.equalsIgnoreCase("false"))
+				ps.setInt(3, 1);
+			else {
+				if(Recipient != "")
+					ps.setInt(3, 3);
+				else
+					ps.setInt(3,2);
+			}
 			ps.setString(4, date);
 			ps.setInt(5, 0);
 			ps.setInt(6, 0);
