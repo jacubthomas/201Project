@@ -38,6 +38,7 @@ fetch('http://localhost:8080/Group_Project/getPosts?', {
 					div.classList.add("private");
 				document.getElementById("dashposts").appendChild(div);
 			} else {
+				document.getElementById("say_more").classList.add("hidden");;
 				if(security == 1){
 				var div =  document.createElement("div");
 				div.classList.add("post");
