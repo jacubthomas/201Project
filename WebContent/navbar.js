@@ -1,13 +1,17 @@
+var url = "http://localhost:8080/Group_Project"
+
 window.onload = function() {
-	console.log("test");
+	setUserName()
+}
+
+function setUserName(){
 	let user = localStorage.getItem('username');
-	console.log(user);
 	if(user == null){
 	document.getElementById("get_username").innerHTML = "guest";
 	} else {
 		document.getElementById("get_username").innerHTML = "~" + user;
 	}
-};
+}
 
 function settings(){
 	let user = localStorage.getItem('username');

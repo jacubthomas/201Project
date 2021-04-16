@@ -61,7 +61,7 @@
 					<div class="row mt-3 mb-5 p-0 justify-content-center">
 						<div id="profile_about" class="p-2 ml-4 col-10">
 							<form class="col-12">
-								<textarea class="col-12 text-wrap" name="bio" rows="10">Hi, my name is Tommy Trojan. I am 82 years young and forever attend the University of Southern California in Los Angeles. Fight on fellow Trojans!</textarea>
+								<textarea id = "bio" class="col-12 text-wrap" name="bio" rows="10">Hi, my name is Tommy Trojan. I am 82 years young and forever attend the University of Southern California in Los Angeles. Fight on fellow Trojans!</textarea>
 							</form>
 						</div>
 					</div>
@@ -76,7 +76,7 @@
 						</div>
 						<div class="form-group row my-4">
 							<label class="label col-4" for="lname">Last Name:</label>
-							<input class="form-control col-7" type="text" id="username" value="Trojan">
+							<input class="form-control col-7" type="text" id="lname" value="Trojan">
 						</div>
 						<div class="form-group row my-4">
 							<label class="label col-5 col-md-4 mr-1">Privacy Status:</label>
@@ -89,12 +89,13 @@
 						</div>
 						<div class="form-group row my-4 justify-content-center">
 							<button type="button" class="btn login_btns mx-auto" onclick="location.href='reset_password.html'">Reset Password</button>
-							<button type="submit" class="btn login_btns mx-auto">Save Changes</button>						
+							<button onClick = "saveChanges()" type="button" class="btn login_btns mx-auto">Save Changes</button>						
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="navbar.js"></script>
+		<script type="text/javascript" src = './settings.js'></script>
 	</body>
 </html>

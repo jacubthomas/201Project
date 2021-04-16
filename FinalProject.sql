@@ -11,6 +11,7 @@ CREATE TABLE Users (
     lastname VARCHAR(15) NOT NULL,
     joined_on VARCHAR(15) NOT NULL,
     date_of_birth VARCHAR(15) NOT NULL,
+    bio VARCHAR(300) NOT NULL,		
     public_status INT NOT NULL #1 = public, 2 = friends only
 );
 
@@ -53,6 +54,7 @@ CREATE TABLE Comments (
 CREATE TABLE Photos (
 	PhotoID INT PRIMARY KEY AUTO_INCREMENT,
     PostID INT NOT NULL,
+    PhotoData LONGBLOB,
     FOREIGN KEY fk1(PostID) references Posts(PostID),
     UserID INT NOT NULL,
     FOREIGN KEY fk2(UserID) references Users(UserID),

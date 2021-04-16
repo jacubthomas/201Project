@@ -55,8 +55,8 @@ public class register extends HttpServlet {
 				return;
 			}
 			
-			query = "INSERT into Users (username, password_, firstname, lastname, joined_on, date_of_birth, public_status)" +
-							" values (?, ?, ?, ?, ?, ?, ?)";
+			query = "INSERT into Users (username, password_, firstname, lastname, joined_on, date_of_birth, bio, public_status)" +
+							" values (?, ?, ?, ?, ?, ?, ?, ?)";
 			ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, username);
 			ps.setString(2, password);
@@ -64,7 +64,8 @@ public class register extends HttpServlet {
 			ps.setString(4, lastname);
 			ps.setString(5, date);
 			ps.setString(6, "DOB");
-			ps.setInt(7, 1);
+			ps.setString(7, "bio");
+			ps.setInt(8, 1);
 			ps.execute();		
 			rs = ps.getGeneratedKeys();
 			if(rs.next()){
