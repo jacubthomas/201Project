@@ -67,6 +67,7 @@ function post(){
 	})
 	.then(response => response.text())
 	.then(response => console.log(response))
+	window.location.href='dashboard.html';
 }
 
 function privacyToggle(){
