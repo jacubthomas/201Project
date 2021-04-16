@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trojan Chat: Messages</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="messages.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body class="red">
+	
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-0 justify-content-center-sm" id="top-nav" style="border: 2px solid black;">
+		<a class="navbar-brand ml-2 mr-4" id="logo" href="dashboard.html">TC</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link ml-2"  href="dashboard.html">Home</a>
+				</li>
+				<li class="nav-item ml-2">
+					<a class="nav-link" href="profile.html">Profile</a>
+				</li>
+				<li class="nav-item ml-2">
+					<a class="nav-link" href="explore.html">Explore</a>
+				</li>
+				<li class="nav-item ml-2">
+					<a class="nav-link" href="messages.html">Messages</a>
+				</li>
+			</ul>
+			<span id="get_username" class="nav-item ml-auto pl-4"></span>
+			<form class="form-inline mt-4 mb-2 my-md-0">
+				<button type="button" class="btn login_btns ml-4 mr-4 my-2" onclick="window.location.href='index.html'; window.localStorage.clear();" style="background-color:#9DA2AB">Logout</button>
+			</form>
+		</div>
+	</nav>
+	
+	<div class="container-fluid">
+	<div class="row">
+	<div class="wrapper yellow mr-3">
+        <nav id="sidebar" class="bg-dark navbar-dark">
+            <!-- Sidebar Header -->
+			<div id="header-div">
+				<div class="sidebar-header mt-3 text-center">
+					<h3>Friends</h3>
+				</div>
+				<form>
+					<div class="form-row my-4">
+						<input class="form-control mx-auto search-bar ml-2" type="text" name="search" placeholder="Search for a friend">
+						<button class="btn login_btns search-btn mx-auto red">Search</button>
+					</div>
+				</form>
+			</div>
+			<div id="friends" class="container justify-content-center align-content-center">
+				<div class="row message-item text-center">
+					<div class="col-4 my-3 align-self-center">
+						<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="message-pic">
+					</div>
+					<div class="col-8 align-self-center">
+						<h4>Username</h4>
+						<span>message</span>
+					</div>
+				</div>
+				<div class="row message-item text-center">
+					<div class="col-4 my-3 align-self-center">
+						<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="message-pic">
+					</div>
+					<div class="col-8 align-self-center">
+						<h4>Username</h4>
+						<span>message</span>
+					</div>
+				</div>
+				<div class="row message-item text-center">
+					<div class="col-4 my-3 align-self-center">
+						<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="message-pic">
+					</div>
+					<div class="col-8 align-self-center">
+						<h4>Username</h4>
+						<span>message</span>
+					</div>
+				</div>
+				<div class="row message-item text-center">
+					<div class="col-4 my-3 align-self-center">
+						<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="message-pic">
+					</div>
+					<div class="col-8 align-self-center">
+						<h4>Username</h4>
+						<span>message</span>
+					</div>
+				</div>
+				<div class="row message-item text-center">
+					<div class="col-4 my-3 align-self-center">
+						<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="message-pic">
+					</div>
+					<div class="col-8 align-self-center">
+						<h4>Username</h4>
+						<span>message</span>
+					</div>
+				</div>
+				<div class="row message-item text-center">
+					<div class="col-4 my-3 align-self-center">
+						<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="message-pic">
+					</div>
+					<div class="col-8 align-self-center">
+						<h4>Username</h4>
+						<span>message</span>
+					</div>
+				</div>
+			</div>
+        </nav>
+        <div id="content" class="position-absolute active">
+	        <button type="button" id="sidebarCollapse" class="navbar-btn">
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	        </button>
+	   	</div>
+	</div>
+	
+	<div class="my-auto mx-auto" id="main">
+		<nav class="navbar navbar-expand-lg mx-auto mt-3" id="content-nav">
+			<div class="messages">
+				<div class="message-text message-right my-3">
+					<span class="form-control message-textarea ml-auto" readonly>hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvf ewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+				</div>
+				<div class="message-text message-left my-3">
+					<span class="form-control message-textarea ml-auto" rows="5" readonly>hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+				</div>
+				<div class="message-text message-right my-3">
+					<span class="form-control message-textarea ml-auto" rows="5" readonly>hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+				</div>
+				<div class="message-text message-left my-3">
+					<span class="form-control message-textarea ml-auto" rows="5" readonly>hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+				</div>
+				<div class="message-text message-right my-3">
+					<span class="form-control message-textarea ml-auto" rows="5" readonly>hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+				</div>
+				<div class="message-text message-left my-3">
+					<span class="form-control message-textarea ml-auto" rows="5" readonly>hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+				</div>
+			</div>
+	    </nav>
+	    <div class="d-flex align-self-end justify-content-center my-3">
+		<form class="form-inline">
+			<div class="form-row">
+				<textarea id="message-bar" class="form-control" name="message-bar" placeholder="Send Message" rows="3" cols="90"></textarea>
+			</div>
+			<button class="btn login_btns ml-4" id="send-btn">Send</button>
+		</form>
+	</div>
+    </div>
+    </div>
+    </div>
+
+	<script type="text/javascript" src="navbar.js"></script>
+	<script>
+		$(document).ready(function () {
+		    $('#sidebarCollapse').on('click', function () {
+		        $('#sidebar').toggleClass('active');
+		        $(this).toggleClass('active');
+		        $('#content').toggleClass('active');
+		        $('#content').toggleClass('not-active');
+		        $('#content-nav').scrollTop = $('#content-nav').scrollHeight;
+		    });
+		    
+		    $("#sidebar").mCustomScrollbar({
+		         theme: "minimal"
+		    });
+		    
+		    $("#content-nav").mCustomScrollbar({
+		         theme: "minimal"
+		    });
+		    
+		    updateScroll();
+		});
+	</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+</html>
