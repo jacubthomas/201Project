@@ -1,0 +1,154 @@
+@charset "ISO-8859-1";
+
+#sidebarCollapse {
+    width: 40px;
+    height: 40px;
+    position: none;
+    box-shadow: 0px 4px 15px black;
+}
+
+#sidebarCollapse span {
+    width: 80%;
+    height: 2px;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    background: #555;
+}
+
+#sidebarCollapse span:first-of-type {
+    /* rotate first one */
+    transform: rotate(45deg) translate(2px, 2px);
+}
+#sidebarCollapse span:nth-of-type(2) {
+    /* second one is not visible */
+    opacity: 0;
+}
+#sidebarCollapse span:last-of-type {
+    /* rotate third one */
+    transform: rotate(-45deg) translate(1px, -1px);
+}
+#sidebarCollapse.active span {
+    /* no rotation */
+    transform: none;
+    /* all bars are visible */
+    opacity: 1;
+    margin: 5px auto;
+}
+
+#sidebarCollapse.active {
+	position: absolute;
+	margin-left: 1px;
+	margin-top: 1px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    perspective: 1500px;
+ 	height: 92vh;
+    z-index: 9999;
+    max-width: 400px;
+}
+
+#sidebar {
+    min-width: 325px;
+    max-width: 325px;
+    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transform-origin: center left; /* Set the transformed position of sidebar to center left side. */
+    box-shadow: 0px 4px 15px black;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+    transform: rotateY(100deg); /* Rotate sidebar vertically by 100 degrees. */
+}
+
+#content.active {
+	transition: transform 0.5s ease-out;
+	transform: translateX(325px);
+	margin-left: 1px;
+	margin-top: 1px;
+}
+
+#content.not-active {
+	transition: transform 0.8s ease-in;
+	transform: translateX(0px);
+	margin: none;
+}
+
+.gray {
+	background-color: #3A4454;
+}
+
+.red {
+	background-color: #8C271D;
+}
+
+#user-pic {
+	width: 75px;
+	height: 75px;
+}
+
+.search-bar {
+	max-width: 200px;
+	border: 5px solid black;
+}
+
+.search-btn {
+	border: 5px solid black;
+}
+
+.user-item {
+	background-color: #3A4454;
+	border-top: medium solid black;
+	border-left: medium solid black;
+	border-right: medium solid black;
+	color: #E0CA3C;
+	max-width: 350px;
+	max-height: 150px;
+}
+
+.user-item:last-of-type {
+	border-bottom: medium solid black;
+}
+
+#header-div {
+	border: medium solid black;
+}
+
+#content-nav {
+	box-shadow: none;
+	height: 80vh;
+	width: 70vw;
+}
+
+#top-nav {
+	height: 7.8vh;
+}
+.post {
+	background-color: white;
+	color: black;
+	border: medium solid black;
+	border-radius: 10px;
+	box-shadow: 0px 4px 15px black;
+	width: 100%;
+}
+.post-textarea {
+	border: none;
+	height: 100%;
+	overflow-y: hidden;
+	text-overflow: true;
+	display: inline-block;
+	word-wrap: break-word;
+}
+
+#mCSB_2 {
+	width: 100%;
+}
+#mCSB_2_container {
+	width: 100%;
+}
+.posts-area {
+	width: 100%;
+}

@@ -6,11 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="explore.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
-<body>
+<body class="red">
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark p-0"  style="border: 2px solid black;">
 		<a class="navbar-brand ml-2 mr-4" id="logo" href="dashboard.html">TC</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +36,9 @@
 				<li class="nav-item ml-2">
 					<a class="nav-link" href="messages.html">Messages</a>
 				</li>
+				<li class="nav-item ml-2">
+					<a class="nav-link" href="settings.html">Settings</a>
+				</li>
 			</ul>
 			<span id="get_username" class="nav-item ml-auto pl-4"></span>
 			<form class="form-inline mt-4 mb-2 my-md-0">
@@ -40,35 +49,184 @@
 		</div>
 	</nav>
 		
-	<div id="" class="container-fluid">
-		<div class="container-fluid mt-5 h-80 p-0 pt-3 mx-1">
-			<div class="row w-100 h-100 mx-3 p-0" >
-				<div id="profile_feed" class="col-11 d-flex flex-column mx-auto">
-					<div id="say_more"class="form-group post p-2">
-						<textarea class="form-control" placeholder="Search ~ trending threads ~"></textarea>
-						<button id="login" type="submit" class="btn login_btns mr-2 my-5 py-2" style="float:right;">
-							Search!
-						</button>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="wrapper yellow mr-3">
+		        <nav id="sidebar" class="bg-dark navbar-dark">
+		            <!-- Sidebar Header -->
+					<div id="header-div">
+						<div class="sidebar-header mt-3 text-center">
+							<h3>Explore Users</h3>
+						</div>
+						<form>
+							<div class="form-row my-4">
+								<input class="form-control mx-auto search-bar ml-2" type="text" name="search" placeholder="Search for a user">
+								<button class="btn login_btns search-btn mx-auto red">Search</button>
+							</div>
+						</form>
 					</div>
-					<div class="post p-2 private">
-						...............
+					<div id="users-search" class="container justify-content-center align-content-center">
+						<div class="row user-item text-center">
+							<div class="col-4 my-3 align-self-center">
+								<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+							</div>
+							<div class="col-8 align-self-center">
+								<h4>Username</h4>
+								<span>Full Name</span>
+							</div>
+						</div>
+						<div class="row user-item text-center">
+							<div class="col-4 my-3 align-self-center">
+								<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+							</div>
+							<div class="col-8 align-self-center">
+								<h4>Username</h4>
+								<span>Full Name</span>
+							</div>
+						</div>
+						<div class="row user-item text-center">
+							<div class="col-4 my-3 align-self-center">
+								<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+							</div>
+							<div class="col-8 align-self-center">
+								<h4>Username</h4>
+								<span>Full Name</span>
+							</div>
+						</div>
+						<div class="row user-item text-center">
+							<div class="col-4 my-3 align-self-center">
+								<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+							</div>
+							<div class="col-8 align-self-center">
+								<h4>Username</h4>
+								<span>Full Name</span>
+							</div>
+						</div>
+						<div class="row user-item text-center">
+							<div class="col-4 my-3 align-self-center">
+								<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+							</div>
+							<div class="col-8 align-self-center">
+								<h4>Username</h4>
+								<span>Full Name</span>
+							</div>
+						</div>
+						<div class="row user-item text-center">
+							<div class="col-4 my-3 align-self-center">
+								<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+							</div>
+							<div class="col-8 align-self-center">
+								<h4>Username</h4>
+								<span>Full Name</span>
+							</div>
+						</div>
 					</div>
-					<div class="post p-2">
-						...............
-					</div>
-					<div class="post p-2">
-						...............
-					</div>
-					<div class="post p-2 private">
-						...............
-					</div>
-					<div class="post p-2">
-						...............
-					</div>
-				</div>
+		        </nav>
+		        <div id="content" class="position-absolute active">
+			        <button type="button" id="sidebarCollapse" class="navbar-btn">
+			            <span></span>
+			            <span></span>
+			            <span></span>
+			        </button>
+			   	</div>
 			</div>
-		</div>
-	</div>
+				
+			<div class="my-auto mx-auto" id="main">
+				<nav class="navbar navbar-expand-lg mx-auto mt-3" id="content-nav">
+					<div class="posts-area">
+						<div class="post my-3">
+							<div class="row">
+								<div class="my-3 ml-5 align-self-center">
+									<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+								</div>
+								<div class=" ml-4 mr-auto align-self-center">
+									<h4>Username</h4>
+								</div>
+							</div>
+							<span class="form-control post-textarea mx-auto">hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvf ewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+						</div>
+						<div class="post my-4">
+							<div class="row">
+								<div class="my-3 ml-5 align-self-center">
+									<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+								</div>
+								<div class=" ml-4 mr-auto align-self-center">
+									<h4>Username</h4>
+								</div>
+							</div>
+							<span class="form-control post-textarea">hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+						</div>
+						<div class="post my-4">
+							<div class="row">
+								<div class="my-3 ml-5 align-self-center">
+									<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+								</div>
+								<div class=" ml-4 mr-auto align-self-center">
+									<h4>Username</h4>
+								</div>
+							</div>
+							<span class="form-control post-textarea">hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+						</div>
+						<div class="post my-4">
+							<div class="row">
+								<div class="my-3 ml-5 align-self-center">
+									<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+								</div>
+								<div class=" ml-4 mr-auto align-self-center">
+									<h4>Username</h4>
+								</div>
+							</div>
+							<span class="form-control post-textarea">hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+						</div>
+						<div class="post my-4">
+							<div class="row">
+								<div class="my-3 ml-5 align-self-center">
+									<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+								</div>
+								<div class=" ml-4 mr-auto align-self-center">
+									<h4>Username</h4>
+								</div>
+							</div>
+							<span class="form-control post-textarea">hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+						</div>
+						<div class="post my-4">
+							<div class="row">
+								<div class="my-3 ml-5 align-self-center">
+									<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">
+								</div>
+								<div class=" ml-4 mr-auto align-self-center">
+									<h4>Username</h4>
+								</div>
+							</div>
+							<span class="form-control post-textarea">hbasdbsgfvewgfyvewyfbsfbdsgvegfvewyfgvgefbdgshcvgdsvcdsvfewvfygfvewyfvewfyveyvfewyvfewyfvewfvewgfyvfgvsgyfvewyfvewyfvyewvfyewvbfyewvfyewfvyveygfvewyfvewyfvewfyvgfyevwfyewvfyevfyev</span>
+						</div>
+					</div>
+			    </nav>
+    		</div>
+    	</div>
+    </div>
+	
+	<script>
+		$(document).ready(function () {
+		    $('#sidebarCollapse').on('click', function () {
+		        $('#sidebar').toggleClass('active');
+		        $(this).toggleClass('active');
+		        $('#content').toggleClass('active');
+		        $('#content').toggleClass('not-active');
+		        $('#content-nav').scrollTop = $('#content-nav').scrollHeight;
+		    });
+		    
+		    $("#sidebar").mCustomScrollbar({
+		         theme: "minimal"
+		    });
+		    
+		    $("#content-nav").mCustomScrollbar({
+		         theme: "minimal"
+		    });
+		});
+	</script>
 	<script type="text/javascript" src="navbar.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
 </html>
