@@ -3,3 +3,7 @@
 /settings$updates.class
 /settings$Updates.class
 /changePassword.class
+/searchUser.class
+/searchUser$Result.class
+/getUsers.class
+/getUsers$User.class

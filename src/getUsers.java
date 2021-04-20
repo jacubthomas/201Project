@@ -1,3 +1,5 @@
+
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -16,32 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-@WebServlet("/getPosts")
-public class getPosts extends HttpServlet {
+
+@WebServlet("/getUsers")
+public class getUsers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	class post{
-		public int UserID;
-		public String username;
-		public int PostID;
-		public String postText;
-		public String date;
-		public int likes;
-		public int shares;
-		public int security;
-		public post(int UserID, String username, int PostID, String postText, String date, int likes, int shares, int security) {
-			this.UserID = UserID;
-			this.username = username;
-			this.PostID = PostID;
-			this.postText = postText;
-			this.date = date;
-			this.likes = likes;
-			this.shares = shares;
-			this.security = security;
-		}
-	}
-       
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String username = request.getParameter("username");
 		try {
 		    Class.forName("com.mysql.cj.jdbc.Driver");
 		} 
@@ -53,21 +36,23 @@ public class getPosts extends HttpServlet {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		PrintWriter out = response.getWriter();
-		ArrayList<post> postsList = new ArrayList<post>();
+		ArrayList<User> usersList = new ArrayList<User>();
 		try {	
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
 			st = conn.createStatement();
-			rs = st.executeQuery("SELECT u.UserID, p.PostId, u.username, p.postText, p.time_stamp, p.likes, p.shares, p.security_status"
-					+ " from Users u, Posts p " 
-					+ "WHERE u.UserID=p.UserID ORDER BY p.PostID DESC");
-			
-			while(rs.next()) {
-				postsList.add(new post(rs.getInt("UserID"), rs.getString("username"), rs.getInt("PostID"),
-						rs.getString("postText"), rs.getString("time_stamp"),rs.getInt("likes"), rs.getInt("shares"), rs.getInt("security_status")));
+			String query = "SELECT * from Users WHERE username != ?";
+			ps = conn.prepareStatement(query);
+			ps.setString(1, username);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				do {
+					usersList.add(new User(rs.getString("username"), rs.getString("bio")));
+				}while(rs.next());
+				String json = new Gson().toJson(usersList);
+				out.println(json);
+			}else {
+				out.println("No other Users");
 			}
-			String json = new Gson().toJson(postsList);
-			response.setContentType("application/json");
-			out.println(json);
 		}catch(SQLException sqle) {
 			System.out.println ("SQLException: " + sqle.getMessage());
 		}finally {
@@ -89,4 +74,14 @@ public class getPosts extends HttpServlet {
 			}
 		}
 	}
+	
+	class User{
+		public String username;
+		public String bio;
+		public User(String username, String bio) {
+			this.username = username;
+			this.bio = bio;
+		}
+	}
+
 }

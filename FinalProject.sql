@@ -67,4 +67,3 @@ CREATE TABLE Trend (
     PostID INT NOT NULL,
     FOREIGN KEY fk1(PostID) references Posts(PostID)
 );
-
