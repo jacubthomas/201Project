@@ -1,6 +1,5 @@
 function searchUser(){
 	var username = document.getElementById('searchInput')
-	console.log(url + '/searchUser')
 	fetch(url + '/searchUser?'+ new URLSearchParams({
 		username: username
 	}), {
@@ -15,6 +14,12 @@ function searchUser(){
 		}
 	})
 }
+
+function message(elem){
+	//this is username of who you want to message
+	console.log(elem.name)	
+}
+
 function createUserDiv(user){
 	var parent = document.querySelector('.posts-area')
 	var wrapper = document.createElement('div')
@@ -22,7 +27,11 @@ function createUserDiv(user){
 	wrapper.innerHTML = "<div class = \"row\">" + "<div class=\"my-3 ml-5 align-self-center\">"
 						+ "<img class=\"my-auto\" src=\"tommy_boi.jpeg\" alt=\"profile picture\" id=\"user-pic\">"
 						+ "</div>" + "<div class=\" ml-4 mr-auto align-self-center\">" + "<h4>" + user.username + "</h4>"
-						+ "</div>" + "</div>" + "<span class=\"form-control post-textarea mx-auto\">" + user.bio + "</span>" + "</div>"
+						+ "</div>" 
+						+ "<button name = \""+ user.username + "\"onclick=\"message(this)\" type=\"button\" class=\"btn login_btns mr-2\">" +
+									"Message" +
+								"</button>"
+						+ "</div>" + "<span class=\"form-control post-textarea mx-auto\">" + user.bio + "</span>" + "</div>"
 	parent.appendChild(wrapper)
 }
 
