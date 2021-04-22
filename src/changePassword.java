@@ -28,7 +28,7 @@ public class changePassword extends HttpServlet {
 		int UserID = Integer.parseInt(request.getParameter("UserID"));
 		PrintWriter out = response.getWriter();
 		try {
-		    Class.forName("com.mysql.cj.jdbc.Driver");
+		    Class.forName(Utils.driver);
 		} 
 		catch (ClassNotFoundException e) {
 		    e.printStackTrace();
@@ -38,7 +38,7 @@ public class changePassword extends HttpServlet {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {	
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
+			conn = DriverManager.getConnection(Utils.connecter);
 			String query = "SELECT password_ from Users WHERE UserID = ?";
 			ps = conn.prepareStatement(query);
 			ps.setInt(1, UserID);

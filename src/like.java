@@ -20,7 +20,7 @@ public class like extends HttpServlet {
 		int PostID = Integer.parseInt(request.getParameter("PostID"));
 		PrintWriter out = response.getWriter();
 		try {
-		    Class.forName("com.mysql.cj.jdbc.Driver");
+		    Class.forName(Utils.driver);
 		} 
 		catch (ClassNotFoundException e) {
 		    e.printStackTrace();
@@ -30,7 +30,7 @@ public class like extends HttpServlet {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {	
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
+			conn = DriverManager.getConnection(Utils.connecter);
 			String query = "SELECT likes from Posts WHERE PostID = ?";
 			ps = conn.prepareStatement(query);
 			ps.setInt(1, PostID);

@@ -25,7 +25,7 @@ public class login extends HttpServlet {
 		String password = request.getParameter("password");
 		PrintWriter out = response.getWriter();
 		try {
-		    Class.forName("com.mysql.cj.jdbc.Driver");
+		    Class.forName(Utils.driver);
 		} 
 		catch (ClassNotFoundException e) {
 		    e.printStackTrace();
@@ -35,7 +35,7 @@ public class login extends HttpServlet {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {	
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
+			conn = DriverManager.getConnection(Utils.connecter);
 			String query = "SELECT * from Users WHERE username = ? AND password_ = ?";
 			ps = conn.prepareStatement(query);
 			ps.setString(1, username);

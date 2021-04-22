@@ -30,7 +30,7 @@ public class post extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		try {
-		    Class.forName("com.mysql.cj.jdbc.Driver");
+		    Class.forName(Utils.driver);
 		} 
 		catch (ClassNotFoundException e) {
 		    e.printStackTrace();
@@ -41,7 +41,7 @@ public class post extends HttpServlet {
 		ResultSet rs = null;
 		String date = new SimpleDateFormat("dd-M-yyyy hh:mm:ss").format(new Date());
 		try {	
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
+			conn = DriverManager.getConnection(Utils.connecter);
 			String query = "INSERT into Posts (UserID, postText, security_status, time_stamp, likes, shares)" +
 					" values (?, ?, ?, ?, ?, ?)";
 			ps = conn.prepareStatement(query);

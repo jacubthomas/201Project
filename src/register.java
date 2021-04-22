@@ -32,7 +32,7 @@ public class register extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		try {
-		    Class.forName("com.mysql.cj.jdbc.Driver");
+		    Class.forName(Utils.driver);
 		} 
 		catch (ClassNotFoundException e) {
 		    e.printStackTrace();
@@ -43,7 +43,7 @@ public class register extends HttpServlet {
 		ResultSet rs = null;
 		String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 		try {	
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
+			conn = DriverManager.getConnection(Utils.connecter);
 			String query = "SELECT * from Users WHERE username = ?";
 			ps = conn.prepareStatement(query);
 			ps.setString(1, username);

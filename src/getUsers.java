@@ -26,7 +26,7 @@ public class getUsers extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		try {
-		    Class.forName("com.mysql.cj.jdbc.Driver");
+		    Class.forName(Utils.driver);
 		} 
 		catch (ClassNotFoundException e) {
 		    e.printStackTrace();
@@ -38,7 +38,7 @@ public class getUsers extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		ArrayList<User> usersList = new ArrayList<User>();
 		try {	
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
+			conn = DriverManager.getConnection(Utils.connecter);
 			st = conn.createStatement();
 			String query = "SELECT * from Users WHERE username != ?";
 			ps = conn.prepareStatement(query);

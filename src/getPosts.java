@@ -43,7 +43,7 @@ public class getPosts extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-		    Class.forName("com.mysql.cj.jdbc.Driver");
+		    Class.forName(Utils.driver);
 		} 
 		catch (ClassNotFoundException e) {
 		    e.printStackTrace();
@@ -55,7 +55,7 @@ public class getPosts extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		ArrayList<post> postsList = new ArrayList<post>();
 		try {	
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
+			conn = DriverManager.getConnection(Utils.connecter);
 			st = conn.createStatement();
 			rs = st.executeQuery("SELECT u.UserID, p.PostId, u.username, p.postText, p.time_stamp, p.likes, p.shares, p.security_status"
 					+ " from Users u, Posts p " 

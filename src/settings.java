@@ -31,7 +31,7 @@ public class settings extends HttpServlet {
 		String status = request.getParameter("status");
 		PrintWriter out = response.getWriter();	
 		try {
-		    Class.forName("com.mysql.cj.jdbc.Driver");
+		    Class.forName(Utils.driver);
 		} 
 		catch (ClassNotFoundException e) {
 		    e.printStackTrace();
@@ -41,7 +41,7 @@ public class settings extends HttpServlet {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {	
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/FinalProject?user=root&password=root");
+			conn = DriverManager.getConnection(Utils.connecter);
 			String query = "";
 			Updates updates = new Updates();
 			query = "UPDATE Users set bio=? where UserID=?";
