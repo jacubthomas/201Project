@@ -85,6 +85,7 @@ public class settings extends HttpServlet {
 				ps.executeUpdate();
 				updates.status = public_status;
 			}
+			updates.success = true;
 			String json = new Gson().toJson(updates);
 			out.println(json);
 			
@@ -115,6 +116,7 @@ public class settings extends HttpServlet {
 		public String fname = "";
 		public String lname = "";
 		public int status = 0;
+		public Boolean success;
 	}
 
 }

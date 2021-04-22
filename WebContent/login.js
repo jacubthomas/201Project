@@ -6,7 +6,7 @@ function login(){
 		return
 	}
 
-    fetch('http://localhost:8080/Group_Project/login?' + new URLSearchParams({
+    fetch(url + '/login?' + new URLSearchParams({
 		username: username,
 		password: password
 	}), {

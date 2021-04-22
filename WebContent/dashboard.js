@@ -3,7 +3,7 @@ for (var i = 0; i < localStorage.length; i++){
     console.log(localStorage.key(i) + ': ' +localStorage.getItem(localStorage.key(i)))
 }
 
-fetch('http://localhost:8080/Group_Project/getPosts?', {
+fetch(url + '/getPosts?', {
 	method: "GET"
 	})
 	.then(response => response.text())
@@ -57,7 +57,7 @@ function post(){
 	postSecurity = document.getElementById('switch1').checked;
 	var postRecipient = document.getElementById('pickafriend').value;
 	UserID = localStorage.getItem("UserID")
-    fetch('http://localhost:8080/Group_Project/post?' + new URLSearchParams({
+    fetch(url + '/post?' + new URLSearchParams({
 		Input: postInput,
 		UserID: UserID,
 		Security: postSecurity,
@@ -66,8 +66,10 @@ function post(){
 		method: "GET"
 	})
 	.then(response => response.text())
-	.then(response => console.log(response))
-	window.location.href='dashboard.html';
+	.then(response => {
+		console.log(response)
+		window.location.href='dashboard.html';
+	})
 }
 
 function privacyToggle(){
@@ -86,7 +88,7 @@ function privacyToggle(){
 }
 
 function like(PID){
-	fetch('http://localhost:8080/Group_Project/like?' + new URLSearchParams({
+	fetch(url + '/Group_Project/like?' + new URLSearchParams({
 		PostID: PID 
 	}), {
 		method: "GET"

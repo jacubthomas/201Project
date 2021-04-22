@@ -33,15 +33,17 @@ function saveChanges(){
 	})
     .then(response => response.text())
     .then(response => {
-		console.log(response)
         var data = JSON.parse(response)
-		//updating settings in localStorage
-		for(var key in data){
-			if(data[key] !== "" && data[key] !== 0){
-				localStorage.setItem(key, data[key])
+		if(data.success){
+			//updating settings in localStorage
+			for(var key in data){
+				if(data[key] !== "" && data[key] !== 0){
+					localStorage.setItem(key, data[key])
+				}
 			}
+			//updating username in the navbar
+			setUserName()	
+			alert("Successfully Updated")
 		}
-		//updating username in the navbar
-		setUserName()
 	})
 }

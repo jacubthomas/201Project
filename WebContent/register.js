@@ -16,7 +16,7 @@ function register(){
 		return
 	}
 	//figure out how the hash the passwords later
-	fetch('http://localhost:8080/Group_Project/register?' + new URLSearchParams({
+	fetch(url + '/register?' + new URLSearchParams({
 		username: username,
 		password: password,
 		confirmPassword: confirmPassword,

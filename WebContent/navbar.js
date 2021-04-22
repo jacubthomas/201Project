@@ -1,4 +1,4 @@
-var url = "http://localhost:8080/Group_Project"
+
 
 window.onload = function() {
 	setUserName()
