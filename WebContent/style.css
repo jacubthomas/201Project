@@ -136,3 +136,13 @@ body{
 .hidden{
 	display:none;
 }
+#navbar-btn-outline {
+	border: thin solid #E0CA3C;
+	color: #E0CA3C;
+	border-radius: 4px;
+	background-color: inherit;
+}
+#navbar-btn-outline:hover {
+	background-color: #E0CA3C;
+	color: black;
+}
