@@ -1,5 +1,5 @@
 function searchUser(){
-	var username = document.getElementById('searchInput')
+	var username = document.getElementById('searchInput').value
 	fetch(url + '/searchUser?'+ new URLSearchParams({
 		username: username
 	}), {
@@ -11,6 +11,7 @@ function searchUser(){
 			alert("No user found")
 		}else{
 			//display their profile?
+			console.log(response)
 		}
 	})
 }
