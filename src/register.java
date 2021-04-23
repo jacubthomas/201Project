@@ -22,6 +22,7 @@ public class register extends HttpServlet {
 
 	@SuppressWarnings("resource")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.addHeader("Access-Control-Allow-Origin", "*");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String firstname = request.getParameter("firstname");

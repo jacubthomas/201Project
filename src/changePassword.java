@@ -23,6 +23,7 @@ public class changePassword extends HttpServlet {
 
 	@SuppressWarnings("resource")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.addHeader("Access-Control-Allow-Origin", "*");
 		String oldPass = request.getParameter("oldPassword");
 		String newPass = request.getParameter("newPassword");
 		int UserID = Integer.parseInt(request.getParameter("UserID"));

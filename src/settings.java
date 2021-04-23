@@ -23,6 +23,7 @@ public class settings extends HttpServlet {
 
 	@SuppressWarnings("resource")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.addHeader("Access-Control-Allow-Origin", "*");
 		String bio = request.getParameter("bio");
 		String username = request.getParameter("username");
 		String fname = request.getParameter("fname");

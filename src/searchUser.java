@@ -21,6 +21,7 @@ public class searchUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.addHeader("Access-Control-Allow-Origin", "*");
 		String username = request.getParameter("username");
 		try {
 		    Class.forName(Utils.driver);

@@ -2,6 +2,8 @@
 /changePassword.class
 /getPosts$post.class
 /getPosts.class
+/getSpecificUserPosts$post.class
+/getSpecificUserPosts.class
 /getUsers$User.class
 /getUsers.class
 /like.class
@@ -12,5 +14,3 @@
 /searchUser.class
 /settings$Updates.class
 /settings.class
-/getSpecificUserPosts$post.class
-/getSpecificUserPosts.class

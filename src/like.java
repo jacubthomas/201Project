@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class like extends HttpServlet {
 	private static final long serialVersionUID = 4L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.addHeader("Access-Control-Allow-Origin", "*");
 		int PostID = Integer.parseInt(request.getParameter("PostID"));
 		PrintWriter out = response.getWriter();
 		try {
