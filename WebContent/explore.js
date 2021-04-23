@@ -30,7 +30,7 @@ function createUserDiv(user){
 						+ "</div>" + "<div class=\" ml-4 mr-auto align-self-center\">" + "<h4>" + user.username + "</h4>"
 						+ "</div>" 
 						+ "<button name = \""+ user.username + "\"onclick=\"message(this)\" type=\"button\" class=\"btn login_btns mr-2\">" +
-									"Message" +
+									"Profile" +
 								"</button>"
 						+ "</div>" + "<span class=\"form-control post-textarea mx-auto\">" + user.bio + "</span>" + "</div>"
 	parent.appendChild(wrapper)
@@ -44,13 +44,12 @@ function displayUsers(){
 	})
     .then(response => response.text())
     .then(response => {
-		if(response.replace(/\s/g, "") === "NootherUsers"){
-			alert("No other Users")
-		}else{
+		if(response.replace(/\s/g, "") !== "NootherUsers"){
 			var data = JSON.parse(response)
 			data.forEach(user => {
 				createUserDiv(user)
 			})
 		}
+		
 	})
 }

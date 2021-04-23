@@ -58,7 +58,8 @@ fetch(url + '/getPosts?', {
 function post(){
 	postInput = document.getElementById('say_more_txt').value;
 	postSecurity = document.getElementById('switch1').checked;
-	var postRecipient = document.getElementById('pickafriend').value;
+	//var postRecipient = document.getElementById('pickafriend').value;
+	var postRecipient = ""
 	UserID = localStorage.getItem("UserID")
     fetch(url + '/post?' + new URLSearchParams({
 		Input: postInput,
