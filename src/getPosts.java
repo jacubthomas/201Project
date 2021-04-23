@@ -61,14 +61,17 @@ public class getPosts extends HttpServlet {
 			rs = st.executeQuery("SELECT u.UserID, p.PostId, u.username, p.postText, p.time_stamp, p.likes, p.shares, p.security_status"
 					+ " from Users u, Posts p " 
 					+ "WHERE u.UserID=p.UserID ORDER BY p.PostID DESC");
-			
-			while(rs.next()) {
-				postsList.add(new post(rs.getInt("UserID"), rs.getString("username"), rs.getInt("PostID"),
-						rs.getString("postText"), rs.getString("time_stamp"),rs.getInt("likes"), rs.getInt("shares"), rs.getInt("security_status")));
+			if(rs.next()) {
+				do {
+					postsList.add(new post(rs.getInt("UserID"), rs.getString("username"), rs.getInt("PostID"),
+							rs.getString("postText"), rs.getString("time_stamp"),rs.getInt("likes"), rs.getInt("shares"), rs.getInt("security_status")));
+				}while(rs.next());
+				String json = new Gson().toJson(postsList);
+				response.setContentType("application/json");
+				out.println(json);
+			}else {
+				out.println("No Posts");
 			}
-			String json = new Gson().toJson(postsList);
-			response.setContentType("application/json");
-			out.println(json);
 		}catch(SQLException sqle) {
 			System.out.println ("SQLException: " + sqle.getMessage());
 		}finally {

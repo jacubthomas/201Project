@@ -8,6 +8,9 @@ fetch(url + '/getPosts?', {
 	})
 	.then(response => response.text())
 	.then(response => {
+		if(response.replace(/\s/g, "") === "NoPosts"){
+			return
+		}
 		postsArr = JSON.parse(response)
 		console.log(postsArr)
 		console.log(postsArr[0].UserID);
