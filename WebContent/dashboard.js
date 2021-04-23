@@ -44,8 +44,8 @@ fetch(url + '/getPosts?', {
 				div.classList.add("post");
 				div.classList.add("p-2");
 				div.innerHTML =  "<strong>" + timestamp + "<br>" + username + ":</strong><hr>" + text
-								+ "<hr><div style=\"text-align:right; margin:2%;\"><button id=\"like" + PID +"\" onclick=\"like(" + PID + ")\" style=\"background-color:#9DA2AB;\" class=\"btn login_btns p-2\">Likes: " + likes
-								 + "</button><button style=\"background-color:#9DA2AB;\" class=\"btn login_btns p-2\">Shares: " + shares +"</button></div>";
+								+ "<hr><div style=\"text-align:right; margin:2%;\"><button id=\"like" + PID +"\" onclick=\"like(" + PID + ")\" class=\"btn login_btns p-2\">Likes: " + likes
+								 + "</button><button class=\"btn login_btns p-2\">Shares: " + shares +"</button></div>";
 				document.getElementById("dashposts").appendChild(div);}
 			}
 		} 
@@ -88,8 +88,8 @@ function privacyToggle(){
 }
 
 function like(PID){
-	fetch(url + '/Group_Project/like?' + new URLSearchParams({
-		PostID: PID 
+	fetch(url + '/like?' + new URLSearchParams({
+		PostID: PID
 	}), {
 		method: "GET"
 	})
