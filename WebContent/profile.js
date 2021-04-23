@@ -1,8 +1,19 @@
-getSpecificUserPosts()
 
-function getSpecificUserPosts(){
+
+if(localStorage.getItem("searchedUserID") !== null){
+	console.log("HUH")
+	var UserID = localStorage.getItem("searchedUserID")
+	var username = localStorage.getItem("searchedUsername")
+	getSpecificUserPosts(UserID, username)
+	localStorage.removeItem("searchedUserID")
+	localStorage.removeItem("searchedUsername")
+}else{
 	var UserID = localStorage.getItem("UserID")
 	var username = localStorage.getItem("username")
+	getSpecificUserPosts(UserID, username)
+}
+
+function getSpecificUserPosts(UserID, username){
 	fetch(url + '/getSpecificUserPosts?UserID=' + UserID,{
 		method: "GET"
 	})	

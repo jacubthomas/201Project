@@ -12,6 +12,10 @@ function searchUser(){
 		}else{
 			//display their profile?
 			console.log(response)
+			var data = JSON.parse(response)
+			localStorage.setItem("searchedUserID", data.UserID)
+			localStorage.setItem("searchedUsername", data.username)
+			window.location.href = "profile.html"
 		}
 	})
 }

@@ -37,15 +37,15 @@ public class searchUser extends HttpServlet {
 		try {	
 			conn = DriverManager.getConnection(Utils.connecter);
 			st = conn.createStatement();
-			String query = "SELECT UserID, bio from Users WHERE username = ?";
+			String query = "SELECT * from Users WHERE username = ?";
 			ps = conn.prepareStatement(query);
 			ps.setString(1, username);
 			rs = ps.executeQuery();
 			Result res = null;
 			if(rs.next()) {
-				res = new Result(rs.getInt("UserID"), rs.getString("bio"), "Success");
+				res = new Result(rs.getInt("UserID"), rs.getString("bio"), rs.getString("username"), "Success");
 			}else {
-				res = new Result(0, "", "Failed");
+				res = new Result(0, "", "","Failed");
 			}
 			String json = new Gson().toJson(res);
 			response.setContentType("application/json");
@@ -75,9 +75,11 @@ public class searchUser extends HttpServlet {
 		public int UserID;
 		public String bio;
 		public String status;
-		public Result(int UserID, String bio, String status) {
+		public String username;
+		public Result(int UserID, String bio, String username, String status) {
 			this.UserID = UserID;
 			this.bio = bio;
+			this.username = username;
 			this.status = status;
 		}
 	}
