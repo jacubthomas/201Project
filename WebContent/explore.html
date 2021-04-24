@@ -25,15 +25,15 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<button type="button" id="navbar-btn-outline" onclick="window.location.href='dashboard.html'">Home</button>
+					<a class="nav-link ml-2"  href="dashboard.html">Home</a>
 				</li>
 				<li id="nav_pro" class="nav-item ml-2">
 					<a class="nav-link" href="profile.html">Profile</a>
 				</li>
 				<li class="nav-item ml-2">
-					<a class="nav-link" href="explore.html">Explore</a>
+					<button type="button" id="navbar-btn-outline" onclick="window.location.href='explore.html'">Explore</button>
 				</li>
-				<li id="nav_mes" class="nav-item ml-2">
+				<li id="nav_mes" class="nav-item ml-2" style = "display: none">
 					<a class="nav-link" href="messages.html">Messages</a>
 				</li>
 				<li id="nav_set"class="nav-item ml-2">
@@ -134,7 +134,7 @@
 			<div class="my-auto mx-auto" id="main">
 				<nav class="navbar navbar-expand-lg mx-auto mt-3" id="content-nav">
 					<div class="posts-area">
-						<div class="post my-3">
+						<div class="post my-3" style = "display: none">
 							<div class="row">
 								<div class="my-3 ml-5 align-self-center">
 									<img class="my-auto" src="tommy_boi.jpeg" alt="profile picture" id="user-pic">

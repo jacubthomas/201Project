@@ -47,7 +47,7 @@ public class getUsers extends HttpServlet {
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				do {
-					usersList.add(new User(rs.getString("username"), rs.getString("bio")));
+					usersList.add(new User(rs.getInt("UserID"), rs.getString("username"), rs.getString("bio")));
 				}while(rs.next());
 				String json = new Gson().toJson(usersList);
 				out.println(json);
@@ -77,9 +77,11 @@ public class getUsers extends HttpServlet {
 	}
 	
 	class User{
+		public int UserID;
 		public String username;
 		public String bio;
-		public User(String username, String bio) {
+		public User(int UserID, String username, String bio) {
+			this.UserID = UserID;
 			this.username = username;
 			this.bio = bio;
 		}

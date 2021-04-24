@@ -1,5 +1,8 @@
 function searchUser(){
 	var username = document.getElementById('searchInput').value
+	if(!username || username === ""){
+		return
+	}
 	fetch(url + '/searchUser?'+ new URLSearchParams({
 		username: username
 	}), {
@@ -7,12 +10,12 @@ function searchUser(){
 	})
     .then(response => response.text())
     .then(response => {
-		if(response.status == "Failed"){
+		var data = JSON.parse(response)
+		if(data.status === "Failed"){
 			alert("No user found")
+			return
 		}else{
 			//display their profile?
-			console.log(response)
-			var data = JSON.parse(response)
 			localStorage.setItem("searchedUserID", data.UserID)
 			localStorage.setItem("searchedUsername", data.username)
 			window.location.href = "profile.html"
@@ -22,7 +25,11 @@ function searchUser(){
 
 function message(elem){
 	//this is username of who you want to message
-	console.log(elem.name)	
+	var username = elem.name
+	var UserID =  elem.id
+	localStorage.setItem("searchedUserID", UserID)
+	localStorage.setItem("searchedUsername", username)
+	window.location.href = "profile.html"
 }
 
 function createUserDiv(user){
@@ -33,7 +40,7 @@ function createUserDiv(user){
 						+ "<img class=\"my-auto\" src=\"tommy_boi.jpeg\" alt=\"profile picture\" id=\"user-pic\">"
 						+ "</div>" + "<div class=\" ml-4 mr-auto align-self-center\">" + "<h4>" + user.username + "</h4>"
 						+ "</div>" 
-						+ "<button name = \""+ user.username + "\"onclick=\"message(this)\" type=\"button\" class=\"btn login_btns mr-2\">" +
+						+ "<button id = \""+ user.UserID + "\"name = \""+ user.username + "\"onclick=\"message(this)\" type=\"button\" class=\"btn login_btns mr-2\">" +
 									"Profile" +
 								"</button>"
 						+ "</div>" + "<span class=\"form-control post-textarea mx-auto\">" + user.bio + "</span>" + "</div>"

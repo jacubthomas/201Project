@@ -14,6 +14,7 @@ if(localStorage.getItem("searchedUserID") !== null){
 }
 
 function getSpecificUserPosts(UserID, username){
+	document.getElementById("profileName").innerHTML = username
 	fetch(url + '/getSpecificUserPosts?UserID=' + UserID,{
 		method: "GET"
 	})	

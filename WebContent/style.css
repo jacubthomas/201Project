@@ -14,6 +14,7 @@ body{
 	margin:0;
 	padding:0;	
 	background-color: #8C271D;
+	overflow-x: hidden;
 }
 #master{
     background-color: #8C271D;
@@ -145,4 +146,12 @@ body{
 #navbar-btn-outline:hover {
 	background-color: #E0CA3C;
 	color: black;
+}
+#profileName{
+	position: relative;
+	left: 15%;
+	color: #E0CA3C;
+	font-weight: 600;
+	font-size: 35px;
+	font-family: 'fb_logo';
 }
