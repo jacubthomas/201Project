@@ -15,18 +15,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/changePassword")
-public class changePassword extends HttpServlet {
+// servlet is called from forgot password pages
+@WebServlet("/setPassword")
+public class setPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-	@SuppressWarnings("resource")
-	// this servlet is called from settings page
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.addHeader("Access-Control-Allow-Origin", "*");
-		String oldPass = request.getParameter("oldPassword");
-		String newPass = request.getParameter("newPassword");
+		String password = request.getParameter("password");
 		int UserID = Integer.parseInt(request.getParameter("UserID"));
 		PrintWriter out = response.getWriter();
 		try {
@@ -41,26 +37,17 @@ public class changePassword extends HttpServlet {
 		ResultSet rs = null;
 		try {	
 			conn = DriverManager.getConnection(Utils.connecter);
-			String query = "SELECT password_ from Users WHERE UserID = ?";
+			String query = "UPDATE Users set password_=? where UserID=?";
 			ps = conn.prepareStatement(query);
-			ps.setInt(1, UserID);
-			rs = ps.executeQuery();		
-			
-			if(rs.next()) {
-				//update password
-				if(rs.getString("password_").equals(oldPass)) {
-					query = "UPDATE Users set password_=? where UserID=?";
-					ps = conn.prepareStatement(query);
-					ps.setString(1, newPass);
-					ps.setInt(2, UserID);
-					ps.executeUpdate();
-					out.println("Successfully changed Password");
-				}else {
-					out.println("Wrong Password");
-				}
-			}
-		
-			
+			ps.setString(1, password);
+			ps.setInt(2, UserID);
+			int count = ps.executeUpdate();
+			if(count > 0) {
+				out.println("Success");
+			}else {
+				out.println("Failed");
+			}		
+
 		}catch(SQLException sqle) {
 			System.out.println ("SQLException: " + sqle.getMessage());
 		}finally {
@@ -82,5 +69,6 @@ public class changePassword extends HttpServlet {
 			}
 		}
 	}
+
 
 }

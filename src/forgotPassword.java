@@ -15,19 +15,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 
-@WebServlet("/changePassword")
-public class changePassword extends HttpServlet {
+
+@WebServlet("/forgotPassword")
+public class forgotPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
-	@SuppressWarnings("resource")
-	// this servlet is called from settings page
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.addHeader("Access-Control-Allow-Origin", "*");
-		String oldPass = request.getParameter("oldPassword");
-		String newPass = request.getParameter("newPassword");
-		int UserID = Integer.parseInt(request.getParameter("UserID"));
+		String username = request.getParameter("username");
+		String question = request.getParameter("question");
+		String answer = request.getParameter("answer");
 		PrintWriter out = response.getWriter();
 		try {
 		    Class.forName(Utils.driver);
@@ -41,24 +41,21 @@ public class changePassword extends HttpServlet {
 		ResultSet rs = null;
 		try {	
 			conn = DriverManager.getConnection(Utils.connecter);
-			String query = "SELECT password_ from Users WHERE UserID = ?";
+			String query = "SELECT * from Users u, Security s WHERE u.UserID=s.UserID AND u.username = ? AND s.SecurityQuestion = ?"
+					+ "AND s.CustomAnswer = ?";
 			ps = conn.prepareStatement(query);
-			ps.setInt(1, UserID);
-			rs = ps.executeQuery();		
-			
+			ps.setString(1, username);
+			ps.setString(2, question);
+			ps.setString(3, answer);
+			rs = ps.executeQuery();	
+			Status status = null;
 			if(rs.next()) {
-				//update password
-				if(rs.getString("password_").equals(oldPass)) {
-					query = "UPDATE Users set password_=? where UserID=?";
-					ps = conn.prepareStatement(query);
-					ps.setString(1, newPass);
-					ps.setInt(2, UserID);
-					ps.executeUpdate();
-					out.println("Successfully changed Password");
-				}else {
-					out.println("Wrong Password");
-				}
+				status = new Status(true, rs.getInt("UserID"));
+			}else {
+				status = new Status(false, rs.getInt("UserID"));
 			}
+			String json = new Gson().toJson(status);
+			out.println(json);
 		
 			
 		}catch(SQLException sqle) {
@@ -82,5 +79,12 @@ public class changePassword extends HttpServlet {
 			}
 		}
 	}
-
+	class Status{
+		public boolean success;
+		public int UserID;
+		public Status(boolean success, int UserID) {
+			this.success = success;
+			this.UserID = UserID;
+		}
+	}
 }
