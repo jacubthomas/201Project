@@ -21,7 +21,7 @@ function getSpecificUserPosts(UserID, username){
 	.then(response => response.text())
 	.then(response => {
 		if(response.replace(/\s/g, "") === "Noposts"){
-			alert(response)
+			alert("User has no posts")
 		}else{
 			var data = JSON.parse(response)
 			data.forEach(post => {

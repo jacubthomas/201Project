@@ -46,7 +46,7 @@
     display: flex;
     align-items: stretch;
     perspective: 1500px;
- 	height: 92vh;
+ 	height: 14vh;
     z-index: 9999;
     max-width: 400px;
 }
@@ -151,4 +151,8 @@
 }
 .posts-area {
 	width: 100%;
+}
+
+#users-search{
+	display: none;
 }
