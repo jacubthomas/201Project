@@ -1,16 +1,27 @@
 
 
 if(localStorage.getItem("searchedUserID") !== null){
-	console.log("HUH")
 	var UserID = localStorage.getItem("searchedUserID")
 	var username = localStorage.getItem("searchedUsername")
 	getSpecificUserPosts(UserID, username)
+	getBio(UserID)
 	localStorage.removeItem("searchedUserID")
 	localStorage.removeItem("searchedUsername")
 }else{
 	var UserID = localStorage.getItem("UserID")
 	var username = localStorage.getItem("username")
 	getSpecificUserPosts(UserID, username)
+	getBio(UserID)
+}
+
+function getBio(UserID){
+	fetch(url + '/getBio?UserID=' + UserID,{
+		method: "GET"
+	})	
+	.then(response => response.text())
+	.then(response => {
+		document.getElementById("profile_about").innerHTML = response
+	})
 }
 
 function getSpecificUserPosts(UserID, username){
@@ -24,6 +35,7 @@ function getSpecificUserPosts(UserID, username){
 			alert("User has no posts")
 		}else{
 			var data = JSON.parse(response)
+			console.log(data)
 			data.forEach(post => {
 				createPost(post, username)
 			})

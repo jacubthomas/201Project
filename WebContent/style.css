@@ -88,6 +88,7 @@ body{
 	border: #9DA2AB 3px solid;
 	border-radius: 25px;
 	box-shadow: 5px 5px 15px black;
+	width: 100%;
 }
 #tommy{
 	max-width: 100%;
