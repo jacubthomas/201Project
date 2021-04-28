@@ -14,6 +14,11 @@ if(localStorage.getItem("searchedUserID") !== null){
 	getBio(UserID)
 }
 
+if(localStorage.getItem("username") === null){
+	document.getElementById("profileBtn").style.display = "none"
+	document.getElementById("settingsBtn").style.display = "none"
+}
+
 function getBio(UserID){
 	fetch(url + '/getBio?UserID=' + UserID,{
 		method: "GET"
