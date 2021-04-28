@@ -50,22 +50,40 @@ function createPost(data, user){
 	var shares = data.shares
 	var likes = data.likes
 	var security = data.security
+	var loggedIn = localStorage.getItem("username")
 	
-	if(user != null){
-		var div =  document.createElement("div");
-		div.classList.add("post");
-		div.classList.add("p-2");
-		if(security == 1){
-		div.innerHTML = "<strong>" + timestamp + "<br>" + user + ":</strong><hr>" + text
-						+ "<hr><div style=\"text-align:right; margin:2%;\"><button id=\"like" + PID +"\" onclick=\"like(" + PID + ")\" class=\"btn login_btns p-2\">Likes: " + likes 
-						+ "</button></div>";
-		} else {
-		div.innerHTML = "<strong>" + timestamp + "<br>" + user + ":</strong><hr>" + text
-						+ "<hr><div style=\"text-align:right; margin:2%;\"><button id=\"like" + PID +"\" onclick=\"like(" + PID + ")\" style=\"background-color:#9DA2AB;\" class=\"btn login_btns p-2\">Likes: " + likes 
-						+ "</button></div>";
-		}
-		if(security != 1)
-			div.classList.add("private");
-		document.getElementById("profile_feed").appendChild(div);
-	} 
+	if(loggedIn === null && security !== 1){
+		return
+	}
+	var div =  document.createElement("div");
+	div.classList.add("post");
+	div.classList.add("p-2");
+	if(security == 1){
+	div.innerHTML = "<strong>" + timestamp + "<br>" + user + ":</strong><hr>" + text
+					+ "<hr><div style=\"text-align:right; margin:2%;\"><button id=\"like" + PID +"\" onclick=\"like(" + PID + ")\" class=\"btn login_btns p-2\">Likes: " + likes 
+					+ "</button></div>";
+	} else {
+	div.innerHTML = "<strong>" + timestamp + "<br>" + user + ":</strong><hr>" + text
+					+ "<hr><div style=\"text-align:right; margin:2%;\"><button id=\"like" + PID +"\" onclick=\"like(" + PID + ")\" style=\"background-color:#9DA2AB;\" class=\"btn login_btns p-2\">Likes: " + likes 
+					+ "</button></div>";
+	}
+	if(security != 1)
+		div.classList.add("private");
+	document.getElementById("profile_feed").appendChild(div);
+}
+
+function like(PID){
+	fetch(url + '/like?' + new URLSearchParams({
+		PostID: PID
+	}), {
+		method: "GET"
+	})
+	.then(response => response.text())
+	.then(response => {
+	resp = JSON.parse(response)
+	console.log(resp.Likes);
+	var id = "like" + PID;
+	document.getElementById(id).innerHTML="Likes: " + resp.Likes;
+	})
+	
 }
